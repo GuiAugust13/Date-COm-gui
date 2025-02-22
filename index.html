@@ -37,6 +37,18 @@
       font-size: 50px;
       color: #ff4081;
     }
+    #link-container {
+      margin-top: 20px;
+    }
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #e91e63;
+      color: white;
+      border-radius: 10px;
+      text-decoration: none;
+    }
   </style>
 </head>
 <body>
@@ -53,6 +65,8 @@
     <button onclick="chooseOption(4)">4</button>
     <button onclick="chooseOption(5)">5</button>
   </div>
+
+  <div id="link-container"></div>
   
   <audio autoplay loop>
     <source src="sua-musica-de-fundo.mp3" type="audio/mp3">
@@ -62,16 +76,18 @@
   <script>
     function chooseOption(number) {
       const restaurants = {
-        1: { name: "Lellis Trattoria - Curitiba", link: "https://www.google.com/maps/place/Lellis+Trattoria+-+Curitiba" },
-        2: { name: "Ernesto Ristorante", link: "https://www.google.com/maps/place/Ernesto+Ristorante" },
-        3: { name: "Armazém Dom Carmino Pizzaria", link: "https://www.google.com/maps/place/Armazém+Dom+Carmino+Pizzaria" },
-        4: { name: "Restaurante Scavollo", link: "https://www.google.com/maps/place/Restaurante+Scavollo" },
-        5: { name: "Italy Caffé Champagnat", link: "https://www.google.com/maps/place/Italy+Caffé+Champagnat" }
+        1: { name: "Lellis Trattoria - Curitiba", link: "https://maps.google.com/?q=Lellis+Trattoria+Curitiba" },
+        2: { name: "Ernesto Ristorante", link: "https://maps.google.com/?q=Ernesto+Ristorante+Curitiba" },
+        3: { name: "Armazém Dom Carmino Pizzaria", link: "https://maps.google.com/?q=Armazém+Dom+Carmino+Pizzaria+Curitiba" },
+        4: { name: "Restaurante Scavollo", link: "https://maps.google.com/?q=Restaurante+Scavollo+Curitiba" },
+        5: { name: "Italy Caffé Champagnat", link: "https://maps.google.com/?q=Italy+Caffé+Champagnat+Curitiba" }
       };
       const choice = restaurants[number];
       if (choice) {
         alert(`Você escolheu: ${choice.name}`);
-        window.location.href = choice.link;
+        document.getElementById('link-container').innerHTML = `
+          <a href="${choice.link}" target="_blank">Clique aqui para abrir o mapa</a>
+        `;
       }
     }
   </script>
