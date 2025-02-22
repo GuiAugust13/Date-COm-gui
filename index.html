@@ -3,15 +3,49 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Escolha o Restaurante</title>
+  <title>Date Com Gui</title>
   <style>
-    body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
-    button { margin: 10px; padding: 15px 30px; font-size: 16px; border-radius: 10px; border: none; background-color: #4CAF50; color: white; cursor: pointer; }
-    button:hover { background-color: #45a049; }
+    body { 
+      font-family: Arial, sans-serif; 
+      text-align: center; 
+      padding: 20px; 
+      background-color: #f4f4f9;
+      background-image: url('https://www.transparenttextures.com/patterns/heart.png');
+      background-repeat: repeat;
+    }
+    h1 {
+      color: #e91e63;
+    }
+    h2 {
+      font-size: 1.5rem;
+      color: #333;
+    }
+    button { 
+      margin: 10px; 
+      padding: 15px 30px; 
+      font-size: 16px; 
+      border-radius: 10px; 
+      border: none; 
+      background-color: #4CAF50; 
+      color: white; 
+      cursor: pointer; 
+    }
+    button:hover { 
+      background-color: #45a049; 
+    }
+    #heart {
+      font-size: 50px;
+      color: #ff4081;
+    }
   </style>
 </head>
 <body>
-  <h1>Escolha um número de 1 a 5</h1>
+  <h1>Date Com Gui</h1>
+  <h2>Nicolly, você tem um encontro com Gui dia 25/02/2025 no lugar e número que você escolher abaixo.</h2>
+  
+  <div id="heart">❤️</div>
+  
+  <h3>Escolha um número de 1 a 5</h3>
   <div id="buttons">
     <button onclick="chooseOption(1)">1</button>
     <button onclick="chooseOption(2)">2</button>
@@ -19,19 +53,24 @@
     <button onclick="chooseOption(4)">4</button>
     <button onclick="chooseOption(5)">5</button>
   </div>
+  
+  <audio autoplay loop>
+    <source src="sua-musica-de-fundo.mp3" type="audio/mp3">
+    Seu navegador não suporta o elemento de áudio.
+  </audio>
 
   <script>
     function chooseOption(number) {
       const restaurants = {
-        1: { name: "Lellis Trattoria - Curitiba", link: "https://goo.gl/maps/GXyaH9nYQ2c3QjKg8" },
-        2: { name: "Ernesto Ristorante", link: "https://goo.gl/maps/KURXbhBWSy52" },
-        3: { name: "Armazém Dom Carmino Pizzaria", link: "https://goo.gl/maps/J7N5WaHE8jQ2" },
-        4: { name: "Restaurante Scavollo", link: "https://goo.gl/maps/zUMT8vLq5nL2" },
-        5: { name: "Italy Caffé Champagnat", link: "https://goo.gl/maps/QFVZkLw2iPR2" }
+        1: { name: "Lellis Trattoria - Curitiba", link: "https://www.google.com/maps/place/Lellis+Trattoria+-+Curitiba" },
+        2: { name: "Ernesto Ristorante", link: "https://www.google.com/maps/place/Ernesto+Ristorante" },
+        3: { name: "Armazém Dom Carmino Pizzaria", link: "https://www.google.com/maps/place/Armazém+Dom+Carmino+Pizzaria" },
+        4: { name: "Restaurante Scavollo", link: "https://www.google.com/maps/place/Restaurante+Scavollo" },
+        5: { name: "Italy Caffé Champagnat", link: "https://www.google.com/maps/place/Italy+Caffé+Champagnat" }
       };
       const choice = restaurants[number];
       if (choice) {
-        alert(`Voc\u00ea escolheu: ${choice.name}`);
+        alert(`Você escolheu: ${choice.name}`);
         window.location.href = choice.link;
       }
     }
